@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DLA</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="particle.js"></script>
+    <script defer src="simulation.js"></script>
+    <script defer src="handle-input.js"></script>
+  </head>
+
+  <body>
+    <div class="parent">
+      <div class="child">
+        <form id="form" action="/">
+          <h1>DLA Simulation</h1>
+
+          <div class="row">
+            <div class="column">
+              <div class="input-control">
+                <label for="speed">Speed</label>
+                <input
+                  id="speed"
+                  name="speed"
+                  type="number"
+                  min="1"
+                  oninput="validity.valid||(value='');"
+                />
+              </div>
+
+              <div class="input-control">
+                <label for="particles">Particles / Wave</label>
+                <input
+                  id="particles"
+                  name="particles"
+                  type="number"
+                  min="0"
+                  oninput="validity.valid||(value='');"
+                />
+              </div>
+
+              <div class="input-control">
+                <label for="waves">Waves</label>
+                <input
+                  id="waves"
+                  name="waves"
+                  type="number"
+                  min="1"
+                  oninput="validity.valid||(value='');"
+                />
+              </div>
+            </div>
+
+            <div class="column">
+              <div class="input-control">
+                <label for="radius">Radius</label>
+                <input
+                  id="radius"
+                  name="radius"
+                  type="number"
+                  min="1"
+                  max="200"
+                  oninput="validity.valid||(value='');"
+                />
+              </div>
+
+              <div class="input-control">
+                <label for="color">Color</label>
+                <input id="color" name="color" type="text" />
+              </div>
+
+              <div class="input-control">
+                <label for="stickiness">Stick Prob. (%)</label>
+                <input
+                  id="stickiness"
+                  name="stickiness"
+                  type="number"
+                  min="1"
+                  max="100"
+                  oninput="validity.valid||(value='');"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div id="error"></div>
+          <button type="button" onclick="runSim()" id="run">Run</button>
+          <button type="button" onclick="resetSim()" id="reset">Reset</button>
+        </form>
+      </div>
+
+      <div class="child">
+        <canvas id="canvas1"></canvas>
+      </div>
+    </div>
+  </body>
+</html>
